@@ -1,9 +1,9 @@
-import "./app.css"
-import { useState } from "react/cjs/react.production.min";
+import { useState } from "react";
+import "./app.css";
 import FormInput from "./components/FormInput";
 
 const App = () => {
-     const [values,setValues] = useState({
+     const [values, setValues] = useState({
          username:"",
          email:"",
          birthday:"",
@@ -22,28 +22,28 @@ const App = () => {
          {
              id:2,
              name:"email",
-             type:"text",
+             type:"email",
              placeholder:"Email",
              label:"Email"
          },
          {
              id:3,
              name:"birthday",
-             type:"text",
+             type:"date",
              placeholder:"Birthday",
              label:"Birthday"
          },
          {
              id:4,
              name:"password",
-             type:"text",
+             type:"password",
              placeholder:"Password",
              label:"Password"
          },
          {
              id:5,
              name:"confirmPassword",
-             type:"text",
+             type:"password",
              placeholder:"Confirm Password",
              label:"Confirm Password"
          }
@@ -58,10 +58,11 @@ const App = () => {
      };
 
 
-     console.log(values)
+     console.log(values);
     return (
         <div className="app">
             <form onSubmit={handleSubmit}>
+                <h1>Register</h1>
                 {inputs.map((input) => (
                     <FormInput key={input.id} {...input} value={values[input.name]}  onChange={onChange}/>
                 ))}
